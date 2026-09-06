@@ -36,9 +36,9 @@ export const PRODUCTS: Product[] = [
       brand: "Apple",
       category: "mobiles" as const,
       images: [
-        `${IMG}/iphone-17-pro-blue.svg`,
-        `${IMG}/iphone-17-pro-silver.svg`,
-        `${IMG}/iphone-17-pro-black.svg`,
+        `${IMG}/iphone-17-pro-blue.jpg`,
+        `${IMG}/iphone-17-pro-silver.jpg`,
+        `${IMG}/iphone-17-pro-black.jpg`,
       ],
       rating: 4.8,
       ratingCount: 12_486,
@@ -92,8 +92,8 @@ export const PRODUCTS: Product[] = [
       brand: "Samsung",
       category: "mobiles" as const,
       images: [
-        `${IMG}/galaxy-s25-ultra-grey.svg`,
-        `${IMG}/galaxy-s25-ultra-black.svg`,
+        `${IMG}/galaxy-s25-ultra-grey.jpg`,
+        `${IMG}/galaxy-s25-ultra-black.jpg`,
       ],
       rating: 4.7,
       ratingCount: 9_213,
@@ -145,7 +145,8 @@ export const PRODUCTS: Product[] = [
       name: "OnePlus 13",
       brand: "OnePlus",
       category: "mobiles" as const,
-      images: [`${IMG}/oneplus-13-ocean.svg`, `${IMG}/oneplus-13-dawn.svg`],
+      // Single photograph supplied; both colourways share it.
+      images: [`${IMG}/oneplus-13.jpg`],
       rating: 4.6,
       ratingCount: 5_874,
       highlights: [
@@ -168,7 +169,7 @@ export const PRODUCTS: Product[] = [
         return {
           price: amount,
           mrp,
-          imageIndex: selection.colour === "ocean" ? 0 : 1,
+          imageIndex: 0,
           inStock: selection.config !== "16-512" || selection.colour !== "dawn",
         };
       }),
@@ -197,10 +198,9 @@ export const PRODUCTS: Product[] = [
       name: "MacBook Air 13-inch M4",
       brand: "Apple",
       category: "laptops" as const,
-      images: [
-        `${IMG}/macbook-air-m4-midnight.svg`,
-        `${IMG}/macbook-air-m4-starlight.svg`,
-      ],
+      // Only one photograph was supplied, so both finishes share it; the
+      // colour swatches still show which one is selected.
+      images: [`${IMG}/macbook-air-m4.jpg`],
       rating: 4.9,
       ratingCount: 7_940,
       highlights: [
@@ -223,7 +223,7 @@ export const PRODUCTS: Product[] = [
         return {
           price: amount,
           mrp,
-          imageIndex: selection.colour === "midnight" ? 0 : 1,
+          imageIndex: 0,
         };
       }),
     };
@@ -251,10 +251,8 @@ export const PRODUCTS: Product[] = [
       name: "Dell XPS 14",
       brand: "Dell",
       category: "laptops" as const,
-      images: [
-        `${IMG}/dell-xps-14-platinum.svg`,
-        `${IMG}/dell-xps-14-graphite.svg`,
-      ],
+      // Single photograph supplied; both finishes share it.
+      images: [`${IMG}/dell-xps-14.jpg`],
       rating: 4.5,
       ratingCount: 2_318,
       highlights: [
@@ -277,7 +275,7 @@ export const PRODUCTS: Product[] = [
         return {
           price: amount,
           mrp,
-          imageIndex: selection.colour === "platinum" ? 0 : 1,
+          imageIndex: 0,
           inStock:
             selection.storage !== "1tb" || selection.colour !== "platinum",
         };
@@ -299,7 +297,7 @@ export const PRODUCTS: Product[] = [
       name: "Sony WH-1000XM6",
       brand: "Sony",
       category: "audio" as const,
-      images: [`${IMG}/sony-xm6-black.svg`, `${IMG}/sony-xm6-silver.svg`],
+      images: [`${IMG}/sony-xm6-black.jpg`, `${IMG}/sony-xm6-silver.jpg`],
       rating: 4.7,
       ratingCount: 15_602,
       highlights: [
@@ -338,7 +336,7 @@ export const PRODUCTS: Product[] = [
       name: "AirPods Pro 3",
       brand: "Apple",
       category: "audio" as const,
-      images: [`${IMG}/airpods-pro-3-white.svg`],
+      images: [`${IMG}/airpods-pro-3-white.jpg`],
       rating: 4.6,
       ratingCount: 21_045,
       highlights: [
@@ -383,8 +381,8 @@ export const PRODUCTS: Product[] = [
       brand: "Apple",
       category: "wearables" as const,
       images: [
-        `${IMG}/apple-watch-11-black.svg`,
-        `${IMG}/apple-watch-11-silver.svg`,
+        `${IMG}/apple-watch-11-black.jpg`,
+        `${IMG}/apple-watch-11-silver.jpg`,
       ],
       rating: 4.8,
       ratingCount: 8_770,
@@ -437,8 +435,8 @@ export const PRODUCTS: Product[] = [
       brand: "Samsung",
       category: "wearables" as const,
       images: [
-        `${IMG}/galaxy-watch-8-graphite.svg`,
-        `${IMG}/galaxy-watch-8-cream.svg`,
+        `${IMG}/galaxy-watch-8-graphite.jpg`,
+        `${IMG}/galaxy-watch-8-cream.jpg`,
       ],
       rating: 4.4,
       ratingCount: 3_506,
@@ -486,7 +484,7 @@ export const PRODUCTS: Product[] = [
       name: "Samsung OLED S90F 4K TV",
       brand: "Samsung",
       category: "appliances" as const,
-      images: [`${IMG}/samsung-oled-tv-55.svg`],
+      images: [`${IMG}/samsung-oled-tv-55.jpg`],
       rating: 4.6,
       ratingCount: 1_842,
       highlights: [

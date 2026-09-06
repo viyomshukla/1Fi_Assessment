@@ -89,11 +89,10 @@ body {
  */
 .shop-hero {
   background-image: linear-gradient(
-    152deg,
-    #2a129a 0%,
-    #3717a8 42%,
-    #4a22c8 76%,
-    #5b2be0 100%
+    168deg,
+    #3414b2 0%,
+    #3917bd 48%,
+    #4a1ecd 100%
   );
 }
 

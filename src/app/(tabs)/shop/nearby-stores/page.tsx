@@ -6,7 +6,7 @@ export default function NearbyStoresPage() {
     <EmptyState
       icon={MapPin}
       title="Nearby Stores"
-      description="Left blank on purpose — this assignment covers the 1Fi Marketplace tab."
+      description="Comming Soon..."
     />
   );
 }

@@ -46,7 +46,6 @@ navigation, then the **1Fi Marketplace** tab.
 | `npm run build` | Production build |
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint (currently zero warnings) |
-| `node scripts/generate-product-images.mjs` | Regenerate product imagery |
 
 ### Seeing the error states
 
@@ -363,12 +362,10 @@ photography is a file drop with no code change.
 
 ## Known limitations
 
-- **Product imagery is generated SVG**, not photography. The illustrations are produced
-  by `scripts/generate-product-images.mjs`; real photos can be dropped into
-  `public/products/` under the same filenames.
-- **The hero artwork is low resolution** (122 × 155), so it appears soft at display size.
-  A higher-resolution export into `src/app/assests/image.png` fixes it with no code
-  change.
+- **The OnePlus 13, MacBook Air and Dell XPS share one photo across their colourways**,
+  since only a single image was available for each. The colour swatches still indicate
+  the selection; the image simply does not change. The iPhone, Galaxy S25 Ultra, Sony
+  XM6 and both watches do swap image on colour change.
 - **Orders are not persisted.** Confirming an order shows the success screen but writes
   nothing; there is no cart, no authentication and no payment integration.
 - **No automated tests yet.** The EMI engine is the natural first candidate — its

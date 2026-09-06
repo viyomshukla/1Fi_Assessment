@@ -6,7 +6,7 @@ export default function TopBrandsPage() {
     <EmptyState
       icon={Store}
       title="Top Brands"
-      description="Left blank on purpose — this assignment covers the 1Fi Marketplace tab."
+      description="Comming Soon..."
     />
   );
 }
