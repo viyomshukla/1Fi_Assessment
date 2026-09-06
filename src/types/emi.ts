@@ -19,6 +19,11 @@ export interface EmiPlanConfig {
 export interface EmiPlan extends EmiPlanConfig {
   principal: number;
   monthlyInstalment: number;
+  /**
+   * The last instalment absorbs rounding so the schedule totals exactly.
+   * Equal to `monthlyInstalment` when the division is clean.
+   */
+  finalInstalment: number;
   totalInterest: number;
   processingFee: number;
   totalPayable: number;

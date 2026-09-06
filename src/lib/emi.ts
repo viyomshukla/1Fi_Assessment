@@ -41,28 +41,44 @@ export function isPlanEligible(
 }
 
 /**
- * Prices a lender config against a principal. The borrower-facing instalment
- * is rounded to the rupee, so totals are derived from the rounded figure —
- * otherwise the summary would not add up to what the user was shown.
+ * Prices a lender config against a principal.
+ *
+ * Instalments are whole rupees, which never divides evenly. Rounding each
+ * instalment and multiplying by the tenure would drift the total away from the
+ * price — enough to show ₹1 of "interest" on a no-cost plan. So the schedule
+ * total is fixed first (exactly the principal when the plan is no-cost) and the
+ * final instalment absorbs the remainder, which is how lenders actually do it.
+ *
+ * The monthly figure is rounded up so the lender never under-collects; the
+ * final instalment is therefore the smaller one.
  */
 export function priceEmiPlan(
   config: EmiPlanConfig,
   principal: number,
 ): EmiPlan {
   const effectiveRate = config.isNoCost ? 0 : config.annualInterestRate;
-  const monthlyInstalment = Math.round(
-    calculateInstalment(principal, effectiveRate, config.tenureMonths),
+  const exactInstalment = calculateInstalment(
+    principal,
+    effectiveRate,
+    config.tenureMonths,
   );
+
+  const monthlyInstalment = Math.ceil(exactInstalment);
+  const scheduledTotal = config.isNoCost
+    ? principal
+    : Math.round(exactInstalment * config.tenureMonths);
+  const finalInstalment =
+    scheduledTotal - monthlyInstalment * (config.tenureMonths - 1);
   const processingFee = calculateProcessingFee(principal, config);
-  const repaid = monthlyInstalment * config.tenureMonths;
 
   return {
     ...config,
     principal,
     monthlyInstalment,
-    totalInterest: Math.max(0, repaid - principal),
+    finalInstalment,
+    totalInterest: Math.max(0, scheduledTotal - principal),
     processingFee,
-    totalPayable: repaid + processingFee,
+    totalPayable: scheduledTotal + processingFee,
     recommended: false,
   };
 }

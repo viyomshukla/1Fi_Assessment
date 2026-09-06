@@ -1,4 +1,4 @@
-import { buildEmiPlans } from "@/lib/emi";
+import { buildEmiPlans, lowestInstalment } from "@/lib/emi";
 import type {
   CategoryId,
   EmiQuote,
@@ -39,6 +39,7 @@ function toSummary(product: Product): ProductSummary {
     price: cheapest.price,
     mrp: cheapest.mrp,
     inStock: product.variants.some((variant) => variant.inStock),
+    emiFrom: lowestInstalment(buildEmiPlans(EMI_PLAN_CONFIGS, cheapest.price)),
   };
 }
 

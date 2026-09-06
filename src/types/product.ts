@@ -77,4 +77,10 @@ export interface ProductSummary {
   price: number;
   mrp: number;
   inStock: boolean;
+  /**
+   * Smallest monthly instalment available on the cheapest variant, computed
+   * server-side so the client never reimplements the lending maths.
+   * Null when no plan is eligible at this price.
+   */
+  emiFrom: number | null;
 }
