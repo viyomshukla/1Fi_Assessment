@@ -111,3 +111,18 @@ body {
   mask-image: linear-gradient(to right, transparent 0%, #000 22%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%);
 }
+
+/*
+ * The banner's second headline line. Slanted rather than set in the family's
+ * true italic, whose redrawn letterforms read as a different typeface beside
+ * the upright lines. Real CSS because Tailwind would not compile the arbitrary
+ * transform utility.
+ */
+.hero-slant {
+  display: inline-block;
+  font-style: normal;
+  /* Lighter than the extrabold lines above and below it, as in the live app. */
+  font-weight: 600;
+  transform: skewX(-9deg);
+  transform-origin: bottom left;
+}

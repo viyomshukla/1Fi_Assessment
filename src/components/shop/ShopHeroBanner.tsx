@@ -23,7 +23,7 @@ export function ShopHeroBanner() {
         priority
         aria-hidden
         sizes="210px"
-        className="shop-hero-art pointer-events-none absolute top-3 right-0 h-auto w-[48%] max-w-[210px] select-none"
+        className="shop-hero-art pointer-events-none absolute -top-3 right-0 h-auto w-[48%] max-w-[210px] select-none"
       />
 
       <div className="relative max-w-[58%]">
@@ -35,7 +35,15 @@ export function ShopHeroBanner() {
         <h1 className="mt-4 text-[28px] leading-[1.13] font-extrabold tracking-[-0.01em] text-white">
           Shop today,
           <br />
-          <span className="italic">Pay later using</span>
+          {/*
+            Slanted rather than set in the family's true italic: Plus Jakarta
+            Sans's italic redraws several letterforms, which reads as a
+            different typeface next to the upright lines. Skewing the upright
+            face keeps the letterforms identical and only adds the lean.
+          */}
+          <span className="hero-slant">
+            Pay later using
+          </span>
           <br />
           Mutual funds.
         </h1>
